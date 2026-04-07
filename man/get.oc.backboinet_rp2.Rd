@@ -125,7 +125,7 @@ distribution is used when
 value is \code{gen.enroll.time="uniform"}.}
 
 \item{n.elimination}{to avoid allocating patients to severely toxic doses,
-dose elimination criteria are applied before the dose allocation decision when 
+dose elimination criteria are applied before the dose allocation decision when
 n treated at the current dose reaches \code{n.elimination},it is a minimum sample
 size for dose elimination.The default value is \code{n.elimination=6}.}
 
@@ -156,12 +156,12 @@ outcome is less than the minimum efficacy probability (\code{target_E}) is
 larger than this criteria, the dose levels are eliminated from the study.
 The default value is \code{stopping.prob.E=0.90}.}
 
-\item{Nesc}{the total number of patients () in the dose-escalation cohort (Stage 1) reaches 
-the maximum total number of patients in the dose-escalation cohort (\code{Nesc}). 
+\item{Nesc}{the total number of patients () in the dose-escalation cohort (Stage 1) reaches
+the maximum total number of patients in the dose-escalation cohort (\code{Nesc}).
 The default value is \code{Nesc=36}.}
 
-\item{boundMTD}{set \code{boundMTD=TRUE} to impose the condition: the isotonic 
-estimate of toxicity probability for the selected MTD must be less than de-escalation 
+\item{boundMTD}{set \code{boundMTD=TRUE} to impose the condition: the isotonic
+estimate of toxicity probability for the selected MTD must be less than de-escalation
 boundary. The default value is \code{boundMTD=FALSE}.}
 
 \item{estpt.method}{Method to estimate the efficacy probability. Fractional
@@ -211,13 +211,13 @@ used when \code{stage1.method="ER"}.}
 \item{H1}{Stage 2: A numeric value for the response rate under the alternative hypothesis.}
 
 \item{nIA.sample}{Stage 2: A numeric vector representing the additional patients enrolled at each interim analysis.
-The value at index 'i' indicates the number of patients at interim analysis 'i'. 
-For example, for four interim analyses with total sample sizes of 10, 15, 20, and 30, 
+The value at index 'i' indicates the number of patients at interim analysis 'i'.
+For example, for four interim analyses with total sample sizes of 10, 15, 20, and 30,
 the vector would be represented as 'n = c(10, 15, 20, 30)'.}
 
 \item{nIA}{Stage 2: A numeric value for the number of interim analysis. The default value is \code{nIA=length(nIA.sample)}.}
 
-\item{method}{Stage 2: A character string specifying the method to use for calculating cutoff values for the efficacy stopping. 
+\item{method}{Stage 2: A character string specifying the method to use for calculating cutoff values for the efficacy stopping.
 Options are "power" (default) or "OF" for "O'Brien-Fleming".}
 
 \item{t1e_optimal_pars}{Stage 2: Desired Type - I error rate. If specified it will only return results with type I error rate less the specified value.}
@@ -310,9 +310,9 @@ selected at stage 1 and stage 2.}
 optimal dose at stage 1 and stage 2.}
 \item{PTS}{The percentage of toxic doses selection at stage 1 and stage 2.}
 \item{PTA}{The percentage of patients who were allocated to toxic doses at stage 1 and stage 2.}
-\item{boundary_tab.all.out}{Futility and efficacy stopping boundaries at stage 2.} 
-\item{lambda}{Lambda values for cut-off probabilitys at stage 2.} 
-\item{gamma}{Gamma values for cut-off probability at stage 2.}  
+\item{boundary_tab.all.out}{Futility and efficacy stopping boundaries at stage 2.}
+\item{lambda}{Lambda values for cut-off probabilitys at stage 2.}
+\item{gamma}{Gamma values for cut-off probability at stage 2.}
 \item{eta}{Eta values for cut-off probability at stage 2.}
 }
 \description{
@@ -322,7 +322,7 @@ within fixed scenarios
 }
 \details{
 The \code{bfboinet_rp2} is a function which generates the operating
-characteristics of the seamless two-stage Phase I/II trial design integrating 
+characteristics of the seamless two-stage Phase I/II trial design integrating
 dose optimization with efficacy evaluation by a simulation study.
 Users can specify a variety of study settings to simulate studies. The
 operating characteristics of the design are summarized by the percentage of
@@ -352,7 +352,7 @@ grid2_optimal_pars=101
 eta1_optimal_pars=0
 eta2_optimal_pars=3
 grid3_optimal_pars=301
-
+\dontrun{
 get.oc.backboinet_rp2(target_T=target_T, toxprob=pttt,target_E=target_E,effprob=pee,n.dose=5,
 startdose=1,ncohort=40,cohortsize=3,pT.saf=0.6 * target_T,pT.tox = 1.4 * target_T,
 pE.saf = 0.6 * target_E,alpha.T1=0.5,alpha.E1=0.5,tau.T=1,tau.E=1,te.corr=0.2,
@@ -367,9 +367,10 @@ gamma1_optimal_pars=gamma1_optimal_pars,gamma2_optimal_pars=gamma2_optimal_pars,
 grid2_optimal_pars=grid2_optimal_pars,eta1_optimal_pars=eta1_optimal_pars,
 eta2_optimal_pars=eta2_optimal_pars,grid3_optimal_pars=grid3_optimal_pars,
 ppsi01=0,ppsi00=40,ppsi11=60, ppsi10=100,n.sim=1,seed.sim=100)
+}
 
 }
 \references{
-A seamless two-stage phase I/II trial design with
-backfill and joint monitoring for dose optimization.
+A seamless two-stage phase I/II trial design with backfill
+and joint efficacy and toxicity monitoring as described in (Takeda et al (2026) <doi:10.1002/pst.70092>.
 }

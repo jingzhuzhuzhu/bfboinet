@@ -7,7 +7,7 @@
 #' @param target_T Target toxicity probability. The default value is
 #' \code{target_T=0.3}. When observing 1 DLT out of 3 patients and the target
 #' DLT rate is between 0.25 and 0.279, the decision is to stay at the current
-#' dose due to a widely accepted practice. 
+#' dose due to a widely accepted practice.
 #' @param toxprob Vector of true toxicity probability.
 #' @param target_E The minimum required efficacy probability. The default value
 #' is \code{target_E=0.25}.
@@ -46,8 +46,8 @@
 #' \code{gen.enroll.time="exponential"}. The default
 #' value is \code{gen.enroll.time="uniform"}.
 #' @param n.elimination a minimum sample size for dose elimination. If the number
-#' of patients treated at the current dose reaches \code{n.elimination} and meet 
-#' elimination dose level criteria, eliminate current dose level and higher doses 
+#' of patients treated at the current dose reaches \code{n.elimination} and meet
+#' elimination dose level criteria, eliminate current dose level and higher doses
 #' when meet toxicity criteria and eliminate current dose level when meet efficacy
 #' criteria. The default value is \code{n.elimination=6}.
 #' @param stopping.npts Early study termination criteria for the number of
@@ -113,13 +113,13 @@
 #' level in dose-esclation and backfill cohorts}
 #' \item{n.bpatient}{Average number of back filled patients who were treated
 #' at each dose level}
-#' \item{n.tox.patient}{Average number of patients who experienced toxicity at 
+#' \item{n.tox.patient}{Average number of patients who experienced toxicity at
 #' each dose level in dose-esclation and backfill cohorts}
-#' \item{n.eff.patient}{Average number of patients who experienced efficacy at 
+#' \item{n.eff.patient}{Average number of patients who experienced efficacy at
 #' each dose level in dose-esclation and backfill cohorts}
-#' \item{n.tox.bpatient}{Average number of patients who experienced toxicity at 
+#' \item{n.tox.bpatient}{Average number of patients who experienced toxicity at
 #' each dose level in backfill cohort}
-#' \item{n.eff.bpatient}{Average number of patients who experienced efficacy at 
+#' \item{n.eff.bpatient}{Average number of patients who experienced efficacy at
 #' each dose level in backfill cohort}
 #' \item{prop.select}{Percentage of times that each dose level was selected as
 #' optimal biological dose.}
@@ -139,8 +139,8 @@
 #' \item{PTS}{The percentage of toxic doses selection.}
 #' \item{PTA}{The percentage of patients who were allocated to toxic doses.}
 #' @references
-#' Takeda, K., Zhu, J. and Hirakawa, A. (2025), BF-BOIN-ET: A Backfill Bayesian 
-#' Optimal Interval Design Using Efficacy and Toxicity Outcomes for Dose 
+#' Takeda, K., Zhu, J. and Hirakawa, A. (2025), BF-BOIN-ET: A Backfill Bayesian
+#' Optimal Interval Design Using Efficacy and Toxicity Outcomes for Dose
 #' Optimization. Pharmaceutical Statistics, 24: e2470. https://doi.org/10.1002/pst.2470
 #' @examples
 #'
@@ -148,7 +148,7 @@
 #' target_E=0.25
 #' toxprob=c(0.03,0.05,0.2,0.22,0.45)
 #' effprob=c(0.05,0.1,0.5,0.68,0.7)
-#'
+#'\dontrun{
 #' get.oc.backboinet(target_T=target_T, toxprob=toxprob,target_E=target_E,
 #' effprob=effprob,n.dose=5,startdose=1,ncohort=10,cohortsize=3,
 #' pT.saf=0.6 * target_T,pT.tox = 1.4 * target_T,pE.saf = 0.6 * target_E,
@@ -156,7 +156,7 @@
 #' gen.event.time="weibull",accrual=3,gen.enroll.time="uniform",n.elimination=6,
 #' stopping.npts=12,suspend=0,stopping.prob.T=0.95,stopping.prob.E=0.90,
 #' ppsi01=0,ppsi00=40,ppsi11=60,ppsi10=100,n.sim=2,seed.sim=100)
-#'
+#'}
 #' @import Iso copula
 #' @importFrom stats binomial dbinom pbeta pbinom rmultinom runif rexp
 #' @export
@@ -330,7 +330,7 @@ for(simu in 1:n.sim){
   obs.eff.n <- numeric(n.dose)
   pe        <- numeric(n.dose)
   pt        <- numeric(n.dose)
-  
+
   obs.btox   <- numeric(n.dose)
   obs.beff   <- numeric(n.dose)
 
@@ -614,7 +614,7 @@ for(simu in 1:n.sim){
                                   endeff = localt.enter+apply(as.matrix(1:cohortsize),1,function(x){min(time.te[x,2],tau.E)}),
                                   orr    = localt.yE,
                                   backfill = rep(0,cohortsize)))
-      
+
       if(!is.null(localt.enterb)){
         tite.df <- rbind(tite.df,
                          data.frame(dose   = db,
@@ -654,7 +654,7 @@ for(simu in 1:n.sim){
           obs.eff[ds]   <- x.ORR
           obs.eff.n[ds] <- n.ORR
           pe[ds]        <- x.ORR/n.ORR
-          
+
           #####create two paramters for -	Average number of patients who experienced toxicity/efficacy at each dose level in backfill cohort####;
           x.bDLT  <- sum(compsub.T[compsub.T$backfill==1,]$dlt)
           x.bORR  <- sum(compsub.E[compsub.E$backfill==1,]$orr)
@@ -803,7 +803,7 @@ for(simu in 1:n.sim){
 
         efficacy[simu,]=obs.eff
         toxicity[simu,]=obs.tox
-        
+
         befficacy[simu,]=obs.beff
         btoxicity[simu,]=obs.btox
 
@@ -866,16 +866,16 @@ for(simu in 1:n.sim){
 
         n.tox.patient <- round(apply(toxicity,2,mean),digits=2)
         names(n.tox.patient) <- dose
- 
+
         n.eff.patient <- round(apply(efficacy,2,mean),digits=2)
-        names(n.eff.patient) <- dose       
+        names(n.eff.patient) <- dose
 
         n.tox.bpatient <- round(apply(btoxicity,2,mean),digits=2)
         names(n.tox.bpatient) <- dose
-        
+
         n.eff.bpatient <- round(apply(befficacy,2,mean),digits=2)
-        names(n.eff.bpatient) <- dose   
-        
+        names(n.eff.bpatient) <- dose
+
         duration  <- round(mean(data.dur),digits=1)
         names(duration) <- "Trial duration"
 
