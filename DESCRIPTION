@@ -10,7 +10,7 @@ Description: The bfboinet package implements the Backfill Bayesian Optimal Inter
              a novel clinical trial methodology for dose optimization that simultaneously consider both efficacy 
              and toxicity outcome as described in Takeda et al  (2025) < https://doi.org/10.1002/pst.2470>.
              The package has been extended to include a seamless two-stage phase I/II trial design with backfill 
-             and joint efficacy and toxicity monitoring as described in Takeda et al (2016) <DOI>.
+             and joint efficacy and toxicity monitoring as described in Takeda et al (2026) <https://doi.org/10.1002/pst.70092>.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
