@@ -6,7 +6,7 @@ Authors@R: c(
     person("Jing", "Zhu", email = "zhujing716@gmail.com", role = c("cre","aut")),
     person("Kentaro", "Takeda", email = "kentaro.takeda.statistics@gmail.com", role = "aut"),
     person("Yimer", "Belay Birlie", role = "aut"))
-Description: The bfboinet package implements the Backfill Bayesian Optimal Interval Design (BF-BOIN-ET), 
+Description: Implements the Backfill Bayesian Optimal Interval Design (BF-BOIN-ET), 
              a novel clinical trial methodology for dose optimization that simultaneously consider both efficacy 
              and toxicity outcome as described in (Takeda et al  (2025) <doi:10.1002/pst.2470>).
              The package has been extended to include a seamless two-stage phase I/II trial design with backfill 
