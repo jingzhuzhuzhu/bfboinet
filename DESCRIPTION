@@ -5,7 +5,7 @@ Version: 1.0.0
 Authors@R: c(
     person("Jing", "Zhu", email = "zhujing716@gmail.com", role = c("cre","aut")),
     person("Kentaro", "Takeda", email = "kentaro.takeda.statistics@gmail.com", role = "aut"),
-    person("Yimer", "Belay Birlie", role = "aut"))
+    person("Belay Birlie", "Yimer", role = "aut"))
 Description: Implements the Backfill Bayesian Optimal Interval Design (BF-BOIN-ET), 
              a novel clinical trial methodology for dose optimization that simultaneously consider both efficacy 
              and toxicity outcome as described in (Takeda et al  (2025) <doi:10.1002/pst.2470>).
