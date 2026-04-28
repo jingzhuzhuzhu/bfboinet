@@ -1,7 +1,7 @@
 Package: bfboinet
 Type: Package
 Title: Backfill Bayesian Optimal Interval Design Using Efficacy and Toxicity
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
     person("Jing", "Zhu", email = "zhujing716@gmail.com", role = c("cre","aut")),
     person("Kentaro", "Takeda", email = "kentaro.takeda.statistics@gmail.com", role = "aut"),
